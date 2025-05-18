@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <title>Storytelling</title>
+
+  <!-- Llibreria D3 -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+
+  <!-- Bootstrap i icones -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+  <!-- El teu fitxer CSS personalitzat -->
+  <link rel="stylesheet" href="src/css/styles.css" />
+</head>
+<body>
+
+  <div id="topbar">
+    <div id="logo">
+      <img src="res/logo_uoc.png" alt="Logo UOC" />
+    </div>
+    <div id="univ-name">
+      <h1>Universitat Oberta de Catalunya</h1>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <div id="main-header">
+    <div class="title-container">
+      <h1 class="main-title">Els patrons ocults del turisme a Portugal</h1>
+    </div>
+    <div class="subtitle-container">
+      <h2 class="main-subtitle">
+        Explorem les tendències, anomalies i patrons de comportament del turisme internacional als resorts de Portugal durant el 2016.
+      </h2>
+    </div>
+    <div class="meta">
+      <p class="author">Autor: Albert Vila Vidal</p>
+      <p class="date">Maig 2025</p>
+    </div>
+  </div>
+
+  <!-- INTRODUCTION -->
+  <div class="container-fluid mt-4">
+    <div class="row align-items-center" style="min-height: 500px;">
+      <div class="col-md-4" id="text-container">
+        <h2>Primera vista al turisme</h2>
+        <p><strong>Els visitants que més trien Portugal: predomini nacional</strong></p>
+        <p>
+          L’any 2016, Portugal va destacar clarament com el país amb més reserves a resorts dins del propi territori. Aquest gràfic mostra el nombre total de reserves per país, revelant una forta presència del turisme domèstic, seguit de lluny per Regne Unit i Espanya.
+          L'ordre de les barres ens ajuda a entendre quin pes tenen els diferents orígens en l’activitat turística dels resorts.
+        </p>
+        <p>
+          Però... és realment el turisme local més valuós que l’extern? O simplement el més habitual?
+        </p>
+      </div>
+  
+      <div class="col-md-8" id="chart-container">
+        <div id="chart-img">
+          <img src="res/reserves_per_pais.png" alt="reserves_chart" class="img-grafic" />
+        </div>
+      </div>
+
+      <div class="horizontal-line"></div>
+    </div>
+  </div>
+
+  <!-- INSIGHTS -->
+
+  <!-- INSIGHT 1 -->
+  <div class="container-fluid mt-4">
+    <div class="row align-items-center" style="min-height: 500px;">
+      <div class="col-md-4" id="text-container">
+        <h2>Dissecció de les reserves dels turistes principals</h2>
+        <p><strong>Quin és el comportament general de cada nacionalitat en realitzar les reserves?</strong></p>
+        <p>
+          Baixa despesa, estança fugaç i alta cancelació. Es fa evident que el turiste Portuguès no és el més atractiu de cara a l'hosteleria.
+        </p>
+        <p>
+          Mentre Portugal presenta aquest perfil, altres països mostren estades més llargues, preus més alts i menys cancel·lacions, revelant oportunitats i riscos diferents per als resorts portuguesos.
+        </p>
+        <p>
+          A més, resulta molt fàcil identificar la temporada alta del turisme amb l'augment de l'ADR que s'observa a tots els països des de Juny fins a Agost i la caiguda al Setembre.
+        </p>
+      </div>
+  
+      <div class="col-md-8" id="chart-container">
+        <div class="chart" id="chart-1">
+          <button class="playPauseBtn btn btn-primary mb-3" id="playPauseBtn-1">
+            <span id="btnIcon-1" class="bi bi-play-fill"></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="horizontal-line"></div>
+
+    </div>
+  </div>
+
+  <!-- INSIGHT 2 -->
+  <div class="container-fluid mt-4">
+    <div class="row align-items-center" style="min-height: 500px;">
+      <div class="col-md-4" id="text-container">
+        <h2>El perfil insular</h2>
+        <p><strong>Turisme estable i segur</strong></p>
+        <p>
+          Regne Unit (GBR) i Irlanda (IRL) destaquen per la seva baixa taxa de cancel·lacions. Aquest perfil sol fer reserves menys costoses però amb estades de llarga durada.
+        </p>
+        <p>
+          Aquest comportament estable i consistent pot oferir un perfil atractiu i fiable per als resorts portuguesos.
+        </p>
+      </div>
+  
+      <div class="col-md-8" id="chart-container">
+        <div class="chart" id="chart-2">
+          <button class="playPauseBtn btn btn-primary mb-3" id="playPauseBtn-2">
+            <span id="btnIcon-2" class="bi bi-play-fill"></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="horizontal-line"></div>
+
+    </div>
+  </div>
+
+  <!-- INSIGHT 3 -->
+  <div class="container-fluid mt-4">
+    <div class="row align-items-center" style="min-height: 500px;">
+      <div class="col-md-4" id="text-container">
+        <h2>El perfil veí</h2>
+        <p><strong>Turisme intens i de curta durada</strong></p>
+        <p>
+          Espanya presenta un perfil oposat a l’insular: estades curtes, però amb un ADR elevat i una taxa de cancel·lacions moderada, situada entre la dels turistes locals i els insulars.
+        </p>
+        <p>
+          Aquesta combinació defineix un perfil intens però amb un cert grau de risc per als resorts portuguesos.
+        </p>
+      </div>
+  
+      <div class="col-md-8" id="chart-container">
+        <div class="chart" id="chart-3">
+          <button class="playPauseBtn btn btn-primary mb-3" id="playPauseBtn-3">
+            <span id="btnIcon-3" class="bi bi-play-fill"></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="horizontal-line"></div>
+
+    </div>
+  </div>
+
+  <!-- Conclusions -->
+  <div class="container-fluid mt-4 custom-margin-bottom">
+    <div class="row align-items-center" style="min-height: 500px;">
+      <div class="col-md-4" id="text-container">
+        <h2>Mapa dels perfils turístics</h2>
+        <p><strong>Una fotografia anual dels mercats</strong></p>
+        <p>
+          - El turisme local destaca pel seu elevat volum, alta taxa de cancel·lacions i estades curtes amb baix cost.
+        </p>
+        <p>
+          - Irlanda i Regne Unit es caracteritzen per estades llargues i de baix cost, amb baixa cancel·lació i un volum notable, especialment Regne Unit.
+        </p>
+        <p>
+          - El turista espanyol mostra una despesa més alta però amb estades més breus i una taxa de cancel·lació mitjana.
+        </p>
+        <p>
+          <strong>Aquest resum anual ajuda a comprendre les dinàmiques globals del turisme als resorts portuguesos, facilitant la presa de decisions estratègiques.</strong>
+        </p>
+      </div>
+  
+      <div class="col-md-8" id="chart-container">
+        <div class="chart" id="chart-4">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript functions -->
+  <script src="src/js/bubble_chart.js"></script>
+  <script src="src/js/bubble_chart_anim.js"></script>
+</body>
+</html>

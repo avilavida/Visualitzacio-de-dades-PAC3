@@ -1,0 +1,156 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F0F0F0;
+    margin: 0;
+    padding: 0;
+}
+
+.grid line {
+    stroke: #D0D0D0;
+    stroke-dasharray: 4 4;
+}
+  
+.grid path {
+    stroke-width: 0;
+}
+
+.custom-margin-bottom {
+    margin-bottom: 200px;
+}
+
+.img-grafic {
+    width: 100%;
+    max-width: 1020px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.horizontal-line {
+    width: 70%;
+    height: 3px;
+    background-color: #73EDFF;
+    margin: 60px auto 20px auto;
+}
+
+.chart {
+    position: relative;
+    background-color: white;
+    padding: 10px 10px 70px 10px;
+    border-radius: 10px;
+    width: fit-content;
+    margin: 10px auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+  
+.chart svg {
+    display: block;
+    margin: auto;
+}
+  
+h1 {
+    text-align: center;
+    color: #000078;
+}
+  
+.playPauseBtn {
+    position: absolute;
+    bottom: 25px;
+    right: 20px;
+    z-index: 10;
+    color: #000078;
+    background-color: #73edff;
+    border-color: #73edff;
+}
+
+#topbar {
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 70px;
+    padding: 0 20px;
+}
+
+#logo img {
+    height: 60px;
+    width: auto;
+}
+
+#univ-name {
+    position: absolute;
+    right: 0%;
+    transform: translateX(-50%);
+    text-align: right;
+    width: 250px;
+}
+
+#univ-name h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: #000078;
+    white-space: nowrap;
+}
+
+#main-header {
+    color: #000078;
+    text-align: left;
+    margin-bottom: 200px;
+}
+
+.title-container {
+    width: 700px;
+    margin: 0 auto;
+}
+  
+
+.subtitle-container {
+    width: 850px;
+    margin: 20px auto 0 auto;
+}
+  
+.main-title {
+    color: #000078;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 72px;
+    font-weight: bold;
+    margin: 0;
+}
+  
+.main-subtitle {
+    font-family: 'Georgia', serif;
+    font-size: 24px;
+    font-style: italic;
+    margin: 0;
+}
+
+.meta {
+    width: 200px;
+    font-family: 'Georgia', serif;
+    font-size: 14px;
+    color: #878787;
+    margin: 0px auto 0 auto;
+}
+
+.meta p {
+    margin: 0px 0;
+}
+
+.container-fluid {
+    margin-left: 40px;
+}
+
+#text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    min-height: 500px;
+    color: #000078;
+}
+
+#text-container p {
+    text-align: justify;
+    color: black;
+}
