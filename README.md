@@ -24,8 +24,8 @@ El relat visual s’estructura en cinc gràfics principals:
    Visualització final amb dades mitjanes anuals (ADR, durada i cancel·lació), separada en 4 quadrants que ajuden a identificar perfils turístics: premium, low-cost, fugaços o econòmics.
 
 ## Tecnologies utilitzades
-- Rstudio
-- HTML5 & CSS3
+- RStudio
+- HTML5 i CSS
 - JavaScript
 
 ## Com visualitzar el projecte
