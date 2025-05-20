@@ -8,19 +8,19 @@ Aquest projecte és un exercici de *data storytelling* centrat en les reserves a
 ## Contingut
 El relat visual s’estructura en cinc gràfics principals:
 
-1. **Gràfic de barres**  
+1. **Gràfic de barres (R)**  
    Mostra el nombre total de reserves segons el país d’origen. Portugal lidera amb una forta presència del turisme local.
 
-2. **Bubble chart animat**  
+2. **Bubble chart animat (JavaScript)**  
    Relaciona ADR (Average Daily Rate), durada de l’estada i % de cancel·lacions per país i mes. Es poden observar comportaments diferenciats per nacionalitat i l’estacionalitat del turisme.
 
-3. **Focus GBR i IRL**  
+3. **Focus GBR i IRL (JavaScript)**  
    Es ressalten Irlanda i el Regne Unit per mostrar el seu perfil de turisme estable: baixa cancel·lació i estades llargues.
 
-4. **Focus Espanya**  
+4. **Focus Espanya (JavaScript)**  
    Es destaca el perfil espanyol, caracteritzat per una despesa elevada però estades curtes i una cancel·lació moderada.
 
-5. **Bubble chart resum anual**  
+5. **Bubble chart resum anual (JavaScript)**  
    Visualització final amb dades mitjanes anuals (ADR, durada i cancel·lació), separada en 4 quadrants que ajuden a identificar perfils turístics: premium, low-cost, fugaços o econòmics.
 
 ## Tecnologies utilitzades
