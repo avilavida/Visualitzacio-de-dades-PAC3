@@ -115,5 +115,4 @@ dades_animades <- hotel_bookings_filtrat %>%
   )
 
 write.csv(dades_animades, "resort_2016.csv", row.names = FALSE)
-}
 ```
