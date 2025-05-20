@@ -1,0 +1,119 @@
+---
+title: "storyteller"
+author: "Albert Vila Vidal"
+date: "2025-05-17"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Load packages
+
+```{r packages}
+library("ggplot2")
+library("tidyverse")
+library("dplyr")
+library("forcats")
+library("lubridate")
+library("gganimate")
+library("animation")
+library("magick")
+library("shiny")
+```
+
+
+```{r load data}
+hotel_bookings=read.csv("hotel_bookings.csv", stringsAsFactors = T)
+dim(hotel_bookings)
+```
+
+```{r clean_adults}
+hotel_bookings=hotel_bookings[hotel_bookings$adults<10,]
+```
+
+```{r clean_adr}
+hotel_bookings=hotel_bookings[hotel_bookings$adr>=0 & hotel_bookings$adr<1000,]
+```
+
+```{r data_cleansing}
+hotel_bookings[is.na(hotel_bookings$children),'children']=0
+hotel_bookings=hotel_bookings[hotel_bookings$adr>0 & 
+    (hotel_bookings$stays_in_week_nights+hotel_bookings$stays_in_weekend_nights)>0 & 
+    (hotel_bookings$adults+hotel_bookings$children+hotel_bookings$babies)>0 & 
+    !is.na(hotel_bookings$children),]
+
+hotel_bookings <- hotel_bookings %>% filter(
+  !is.na(country),
+  str_trim(country) != "",
+  country != "NULL"
+)
+         
+```
+
+```{r summary}
+summary(hotel_bookings)
+```
+
+```{r filter_top}
+# 1. Extreure els països amb més reserves a resorts
+paisos_valids <- hotel_bookings %>%
+  filter(hotel == "Resort Hotel") %>%
+  group_by(country) %>%
+  summarise(num_reserves = n()) %>%
+  arrange(desc(num_reserves)) %>%
+  slice_head(n = 6) %>%
+  pull(country)
+
+# 2. Filtrar el dataset principal amb aquests països
+hotel_bookings_filtrat <- hotel_bookings %>%
+  filter(country %in% paisos_valids) %>%
+  filter(arrival_date_year > 2015 & arrival_date_year < 2017) %>%
+  filter(hotel == "Resort Hotel")
+```
+
+``` {r bar_char_intro}
+xx <- hotel_bookings %>% 
+  filter(hotel == "Resort Hotel", arrival_date_year == 2016) %>%
+  group_by(country) %>%
+  summarise(reserves = n()) %>%
+  filter(reserves >= 200)
+
+ggplot(xx, aes(x = reorder(country, reserves), y = reserves)) +
+  geom_col(fill = "#73edff") +
+  coord_flip() +
+  theme_light() +
+  labs(title = "Nombre de reserves segons país d'origen a resorts de Portugal (any 2016)", x = "País", y = "Nombre de reserves") +
+  theme(axis.text.y = element_text(size = 8))
+ggsave("reserves_per_pais.png", width = 10, height = 6, dpi = 300)
+```
+
+
+
+``` {r bubble_chart_data}
+transition_length <- 10
+state_length <- 10
+
+dades_animades <- hotel_bookings_filtrat %>%
+  filter(!is.na(country)) %>%
+  group_by(country, arrival_date_year, arrival_date_month) %>%
+  summarise(
+    num_reserves = n(),
+    adr_promig = mean(adr, na.rm = TRUE),
+    nits_total = mean(stays_in_weekend_nights + stays_in_week_nights),
+    percent_cancel = mean(is_canceled == 1) * 100,
+    .groups = "drop"
+  ) %>%
+  mutate(
+    month_number = match(arrival_date_month, month.name),
+    periode = sprintf("%d-%02d", arrival_date_year, month_number)
+  ) %>%
+  arrange(arrival_date_year, month_number) %>%
+  mutate(
+    periode = factor(periode, levels = unique(periode))
+  )
+
+write.csv(dades_animades, "resort_2016.csv", row.names = FALSE)
+}
+```
